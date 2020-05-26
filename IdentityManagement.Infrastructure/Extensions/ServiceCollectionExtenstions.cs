@@ -32,7 +32,7 @@ namespace IdentityManagement.Infrastructure.Extensions
                     .AddDeveloperSigningCredential()
                     .AddOperationalStore(options =>
                     {
-                        options.ConfigureDbContext = builder => builder.UseNpgsql(configuration.GetConnectionString("DefaultCOnnection"));
+                        options.ConfigureDbContext = builder => builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
                         options.EnableTokenCleanup = true;
                     }).AddAspNetIdentity<AppUser>();
             return services;
