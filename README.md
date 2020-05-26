@@ -2,7 +2,7 @@
 Youtube kanalım üzerinde yayınlamış olduğum derse ait projedir.
 
 # Ders 1 içinde kullanılan kütüphaneler 
-Install-Package IdentityServer4 -Version 3.1.3_
+Install-Package IdentityServer4 -Version 3.1.3<br />
 Install-Package IdentityServer4.AspNetIdentity -Version 3.1.3_
 Install-Package IdentityServer4.EntityFramework -Version 3.1.3_
 Install-Package IdentityServer4.EntityFramework.Storage -Version 3.1.3_
