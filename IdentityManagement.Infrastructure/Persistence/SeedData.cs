@@ -11,7 +11,7 @@ namespace IdentityManagement.Infrastructure.Persistence
 {
     public class SeedData
     {
-        public static void EnsureeSeedData(IServiceProvider provider)
+        public static void EnsureSeedData(IServiceProvider provider)
         {
             var configuration = provider.GetRequiredService<IConfiguration>();
             provider.GetRequiredService<AppIdentityDbContext>().Database.Migrate();

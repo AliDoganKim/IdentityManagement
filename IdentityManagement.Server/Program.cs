@@ -18,7 +18,7 @@ namespace IdentityManagement.Server
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                SeedData.EnsureeSeedData(scope.ServiceProvider);
+                SeedData.EnsureSeedData(scope.ServiceProvider);
             }
             host.Run();
         }
