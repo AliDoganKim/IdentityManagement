@@ -1,4 +1,5 @@
-﻿using IdentityServer4.EntityFramework.Entities;
+﻿using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,28 +25,23 @@ namespace IdentityManagement.Infrastructure.Persistence
                 var clients = new List<Client>();
                 configuration.GetSection("IdentityServer:Clients").Bind(clients);
                 foreach (var client in clients)
-                    context.Clients.Add(client);
-
+                    context.Clients.Add(client.ToEntity());
                 context.SaveChanges();
             }
-
             if (!context.ApiResources.Any())
             {
                 var apiResources = new List<ApiResource>();
                 configuration.GetSection("IdentityServer:ApiResources").Bind(apiResources);
                 foreach (var apiResource in apiResources)
-                    context.ApiResources.Add(apiResource);
-
+                    context.ApiResources.Add(apiResource.ToEntity());
                 context.SaveChanges();
             }
-
             if (!context.IdentityResources.Any())
             {
                 var identityResources = new List<IdentityResource>();
                 configuration.GetSection("IdentityServer:IdentityResources").Bind(identityResources);
                 foreach (var identityResource in identityResources)
-                    context.IdentityResources.Add(identityResource);
-
+                    context.IdentityResources.Add(identityResource.ToEntity());
                 context.SaveChanges();
             }
         }

@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityManagement.Infrastructure.Extensions;
-using IdentityManagement.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,9 +27,9 @@ namespace IdentityManagement.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDatabaseConfiguration(Configuration.GetConnectionString("DefaultConnection"))
-                .AddIdentityServerConfig(Configuration)
-                .AddServices<AppUser>();
+               .AddDatabaseConfiguration(Configuration.GetConnectionString("DefaultConnection"))
+               .AddIdentityServerConfig(Configuration)
+               .AddServices<AppUser>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -39,7 +39,6 @@ namespace IdentityManagement.Server
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,8 +52,7 @@ namespace IdentityManagement.Server
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
-                    );
+                    template: "{controller}/{action}/{id?}");
             });
         }
     }
