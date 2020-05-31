@@ -34,17 +34,18 @@ namespace IdentityManagement.Infrastructure.Extensions
                     {
                         options.ConfigureDbContext = builder => builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
                         options.EnableTokenCleanup = true;
-                    }).AddAspNetIdentity<AppUser>()
-                   .AddConfigurationStore(options =>
-             {
-                 options.ConfigureDbContext = builder => builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
-             });
+                    })
+                     .AddConfigurationStore(options =>
+                     {
+                         options.ConfigureDbContext = builder => builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+                     })
+                    .AddAspNetIdentity<AppUser>();
             return services;
         }
 
         public static IServiceCollection AddServices<TUser>(this IServiceCollection services) where TUser : IdentityUser<int>, new()
         {
-            services.AddTransient<IProfileService, IdentityClaimsProfileService>();
+            // services.AddTransient<IProfileService, IdentityClaimsProfileService>();
             return services;
         }
 
