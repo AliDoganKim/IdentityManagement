@@ -173,7 +173,7 @@ namespace IdentityManagement.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "6b2cb45a-d56d-4e8e-b40d-bf320736d79f", "e6fc06c7-b12f-4ce6-bbc9-95970d8d26c6", "user", null });
+                values: new object[] { "7fbcbaed-3815-4af1-81ee-3c00fc966e82", "a883e264-8ca0-47a1-9f6b-4146bebb353b", "user", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

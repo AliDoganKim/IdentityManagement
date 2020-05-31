@@ -3,17 +3,15 @@ using System;
 using IdentityManagement.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace IdentityManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20200530202150_first")]
-    partial class first
+    partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,8 +137,8 @@ namespace IdentityManagement.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6b2cb45a-d56d-4e8e-b40d-bf320736d79f",
-                            ConcurrencyStamp = "e6fc06c7-b12f-4ce6-bbc9-95970d8d26c6",
+                            Id = "7fbcbaed-3815-4af1-81ee-3c00fc966e82",
+                            ConcurrencyStamp = "a883e264-8ca0-47a1-9f6b-4146bebb353b",
                             Name = "user"
                         });
                 });
