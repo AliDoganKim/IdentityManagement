@@ -22,9 +22,4 @@
   <ItemGroup>
     <ProjectReference Include="..\IdentityManagement.Infrastructure\IdentityManagement.Infrastructure.csproj" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>
