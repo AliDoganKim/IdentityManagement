@@ -53,8 +53,8 @@ namespace IdentityManagement.Server
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action}/{id?}");
+                     name: "default",
+                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
