@@ -1,0 +1,54 @@
+﻿@model ConsentViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="mt-5 mb-3">@Model.ClientName <small>is requesting your permission</small></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Index">
+            <input type="hidden" asp-for="ReturnUrl" />
+
+            <div class="alert alert-primary" role="alert">
+                Uncheck the permissions you do not wish to grant.
+            </div>
+
+            @if (Model.IdentityScopes.Any())
+            {
+                <p>Personal Information</p>
+                <ul class="list-group mb-2">
+                    @foreach (var scope in Model.IdentityScopes)
+                    {
+                        <partial name="_ScopeListItem" model="@scope" />
+                    }
+                </ul>
+            }
+
+            @if (Model.ResourceScopes.Any())
+            {
+                <p>Application Access</p>
+                <ul class="list-group">
+                    @foreach (var scope in Model.ResourceScopes)
+                    {
+                        <partial name="_ScopeListItem" model="scope" />
+                    }
+                </ul>
+            }
+
+            @if (Model.AllowRememberConsent)
+            {
+                <label class="mt-4">
+                    <input asp-for="RememberConsent" />
+                    <strong>Remember My Decision</strong>
+                </label>
+            }
+
+            <div class="mt-4 mb-4">
+                <button name="button" value="yes" class="btn btn-primary" autofocus>Yes, Allow</button>
+                <button name="button" value="no" class="btn">No, Do Not Allow</button>
+            </div>
+        </form>
+    </div>
+</div>
