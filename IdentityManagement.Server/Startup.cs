@@ -33,6 +33,10 @@ namespace IdentityManagement.Server
                .AddIdentityServerConfig(Configuration)
                .AddServices<AppUser>();
 
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()));
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc(options =>
@@ -49,6 +53,7 @@ namespace IdentityManagement.Server
             }
 
             app.UseStaticFiles();
+            app.UseCors("AllowAll");
             app.UseIdentityServer();
             app.UseMvc(routes =>
             {
